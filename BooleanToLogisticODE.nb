@@ -29,20 +29,6 @@ dd618b2f1c1a"],
 
 Cell["Paris", "Affiliation",ExpressionUUID->"2afc8bac-ce2f-4c1e-84d4-b53b78c7505a"],
 
-Cell["\<\
-Trimmed package. This is a reduced version of the original \
-\"Functionsneededpackage\". It retains ONLY the functions required by the \
-Verlingue / Traynard logistic-ODE drivers: BooleanToOdeSystem (maps a Boolean \
-network to a product-of-logistics ODE system via the recursive De Morgan \
-formula), logisticp (increasing/activation logistic kernel), and logisticm \
-(decreasing/repression logistic kernel). All other functions of the original \
-package (Boolean-network utilities, state graphs, interaction graphs, \
-observers, perturbation helpers, Hill kernels, etc.) have been removed. \
-BooleanToOdeSystem is a PURE De Morgan translator: it does not minimise its \
-input. The driver reduces the rules to minimal DNF with the built-in \
-BooleanMinimize explicitly, BEFORE calling this routine, so the \
-canonicalisation is visible to the reader.\
-\>", "Text",ExpressionUUID->"7e8a3d26-24c1-4d92-9fa0-ef46253a10c0"],
 
 Cell[BoxData[{
  RowBox[{
