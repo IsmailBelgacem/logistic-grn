@@ -113,5 +113,6 @@ If you use this code, please cite the paper:
   note    = {Manuscript MBS-D-26-00594}
 }
 ```
-
+and, if you wish to cite the software archive directly, the Zenodo record
+(`DOI: 10.5281/zenodo.21134105 `).
 © 2026 Ismail Belgacem.
