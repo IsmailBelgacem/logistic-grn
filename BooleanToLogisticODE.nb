@@ -249,11 +249,6 @@ Cell[BoxData[
  CellLabel->
   "In[353]:=",ExpressionUUID->"99239091-a64f-438a-9f40-78fb3b4578ec"],
 
-Cell["\<\
-Lock the documented public API against accidental redefinition. (Definitions \
-are left inspectable for reproducibility -- ReadProtected is intentionally \
-not set.)\
-\>", "Text",ExpressionUUID->"135b67ed-b9c3-4d4e-aae9-f7b6543bfbe1"],
 
 Cell[BoxData[{
  RowBox[{
