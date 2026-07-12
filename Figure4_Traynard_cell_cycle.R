@@ -6,8 +6,7 @@
 #  recursive De Morgan formula of Section 4, applied here by the GENERAL
 #  translator in BooleanToLogisticODE.R (the native-R equivalent of the
 #  Mathematica BooleanToODESys). The regulatory functions are therefore
-#  DERIVED from the Boolean rules, not hand-written, and are identical (to
-#  machine precision) to the Mathematica output -- see verify_translator.R.
+#  DERIVED from the Boolean rules, not hand-written.
 #
 #  Each gene obeys   dx_i/dt = kappa_i * Phi_i(x) - gamma_i * x_i,
 #  with lambda_i = n/theta_i.  With CycD active (proliferative regime) the
@@ -87,8 +86,10 @@ legend(par("usr")[2], par("usr")[4], legend = genes, col = cols, lty = 1, lwd = 
 ## ---- console summary: oscillating vs high vs off (t > 40) -----------
 cat("Second-half (t>40) behaviour:\n")
 for (g in genes) {
-  seg <- out[[g]][out$time > 40]
-  pp  <- max(seg) - min(seg)
-  tag <- if (pp > 1) "oscillates" else "steady"
-  cat(sprintf("  %-7s mean=%7.2f  p2p=%7.3f  %s\n", g, mean(seg), pp, tag))
+  seg   <- out[[g]][out$time > 40]
+  pp    <- max(seg) - min(seg)
+  level <- max(abs(seg))
+  cutoff <- max(1.0, 0.05 * level)
+  tag <- if (pp > cutoff) "oscillates" else "steady"
+  cat(sprintf("  %-7s mean=%7.2f  p2p=%7.3f  cutoff=%6.2f  %s\n", g, mean(seg), pp, cutoff, tag))
 }

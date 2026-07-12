@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     12844,        325]
-NotebookOptionsPosition[     10969,        288]
-NotebookOutlinePosition[     11359,        304]
-CellTagsIndexPosition[     11316,        301]
+NotebookDataLength[     12190,        319]
+NotebookOptionsPosition[     10322,        282]
+NotebookOutlinePosition[     10712,        298]
+CellTagsIndexPosition[     10669,        295]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,6 +29,15 @@ dd618b2f1c1a"],
 
 Cell["Paris", "Affiliation",ExpressionUUID->"2afc8bac-ce2f-4c1e-84d4-b53b78c7505a"],
 
+Cell["\<\
+BooleanToOdeSystem is a PURE De Morgan translator: it does not minimise its \
+input. The driver reduces the rules to minimal DNF with the built-in \
+BooleanMinimize explicitly, BEFORE calling this routine, so the \
+canonicalisation is visible to the reader.\
+\>", "Text",
+ CellChangeTimes->{
+  3.9926652225066233`*^9},ExpressionUUID->"7e8a3d26-24c1-4d92-9fa0-\
+ef46253a10c0"],
 
 Cell[BoxData[{
  RowBox[{
@@ -249,6 +258,10 @@ Cell[BoxData[
  CellLabel->
   "In[353]:=",ExpressionUUID->"99239091-a64f-438a-9f40-78fb3b4578ec"],
 
+Cell["", "Text",
+ CellChangeTimes->{{3.992842564970214*^9, 
+  3.992842565599724*^9}},ExpressionUUID->"135b67ed-b9c3-4d4e-aae9-\
+f7b6543bfbe1"],
 
 Cell[BoxData[{
  RowBox[{
@@ -288,29 +301,27 @@ Cell[CellGroupData[{
 Cell[576, 22, 107, 0, 96, "Title",ExpressionUUID->"6e33927f-0274-439a-a41c-fe2d0547e232"],
 Cell[686, 24, 163, 3, 30, "Author",ExpressionUUID->"b9678ced-ba0c-4154-8119-dd618b2f1c1a"],
 Cell[852, 29, 83, 0, 30, "Affiliation",ExpressionUUID->"2afc8bac-ce2f-4c1e-84d4-b53b78c7505a"],
-Cell[938, 31, 930, 13, 164, "Text",ExpressionUUID->"7e8a3d26-24c1-4d92-9fa0-ef46253a10c0"],
-Cell[1871, 46, 322, 9, 65, "Input",ExpressionUUID->"98bba5a1-ec5f-4a9a-b79f-70bfe75e025c",
+Cell[938, 31, 385, 8, 55, "Text",ExpressionUUID->"7e8a3d26-24c1-4d92-9fa0-ef46253a10c0"],
+Cell[1326, 41, 322, 9, 65, "Input",ExpressionUUID->"98bba5a1-ec5f-4a9a-b79f-70bfe75e025c",
  InitializationCell->True],
-Cell[2196, 57, 98, 0, 33, "Text",ExpressionUUID->"4d2d663a-e3e2-4fa3-ba77-53460dbf5fd8"],
-Cell[2297, 59, 1556, 33, 351, "Input",ExpressionUUID->"ff1c97d2-c335-401e-9f7b-9f3ca340b227",
+Cell[1651, 52, 98, 0, 33, "Text",ExpressionUUID->"4d2d663a-e3e2-4fa3-ba77-53460dbf5fd8"],
+Cell[1752, 54, 1556, 33, 351, "Input",ExpressionUUID->"ff1c97d2-c335-401e-9f7b-9f3ca340b227",
  InitializationCell->True],
-Cell[3856, 94, 202, 5, 45, "Input",ExpressionUUID->"bb466ddd-2308-476f-8598-20c9392f03c3",
+Cell[3311, 89, 202, 5, 45, "Input",ExpressionUUID->"bb466ddd-2308-476f-8598-20c9392f03c3",
  InitializationCell->True],
-Cell[4061, 101, 112, 0, 33, "Text",ExpressionUUID->"a1b94644-7a35-4caf-9331-ddcb2bac42a2"],
-Cell[4176, 103, 1219, 38, 65, "Input",ExpressionUUID->"24291ef9-1a95-4a7b-8ef0-fadd3df4ddcc",
+Cell[3516, 96, 112, 0, 33, "Text",ExpressionUUID->"a1b94644-7a35-4caf-9331-ddcb2bac42a2"],
+Cell[3631, 98, 1219, 38, 65, "Input",ExpressionUUID->"24291ef9-1a95-4a7b-8ef0-fadd3df4ddcc",
  InitializationCell->True],
-Cell[5398, 143, 730, 10, 121, "Text",ExpressionUUID->"f76cc3c4-7e46-4a13-8bd9-b31cdc604cdb"],
-Cell[6131, 155, 3914, 101, 372, "Input",ExpressionUUID->"3468c5f9-5a60-48a4-a626-38fd02979e11",
+Cell[4853, 138, 730, 10, 121, "Text",ExpressionUUID->"f76cc3c4-7e46-4a13-8bd9-b31cdc604cdb"],
+Cell[5586, 150, 3914, 101, 372, "Input",ExpressionUUID->"3468c5f9-5a60-48a4-a626-38fd02979e11",
  InitializationCell->True],
-Cell[10048, 258, 179, 5, 45, "Input",ExpressionUUID->"99239091-a64f-438a-9f40-78fb3b4578ec",
+Cell[9503, 253, 179, 5, 45, "Input",ExpressionUUID->"99239091-a64f-438a-9f40-78fb3b4578ec",
  InitializationCell->True],
-Cell[10230, 265, 244, 4, 55, "Text",ExpressionUUID->"135b67ed-b9c3-4d4e-aae9-f7b6543bfbe1"],
-Cell[10477, 271, 476, 14, 65, "Input",ExpressionUUID->"e324dbae-b812-4cb6-9dde-81b4121e043d",
+Cell[9685, 260, 142, 3, 33, "Text",ExpressionUUID->"135b67ed-b9c3-4d4e-aae9-f7b6543bfbe1"],
+Cell[9830, 265, 476, 14, 65, "Input",ExpressionUUID->"e324dbae-b812-4cb6-9dde-81b4121e043d",
  InitializationCell->True]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

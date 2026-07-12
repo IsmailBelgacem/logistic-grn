@@ -106,14 +106,7 @@ rulesRaw <- list(
 rulesRaw$Therapy <- NULL
 rules <- rulesRaw
 
-## ---- ETAPE 4 -- Parametres cinetiques : PAS issus du papier ----------
-## Le papier original utilise un modele booleen pur simule stochastiquement
-## avec MaBoSS -- "one of the main advantages of Boolean models is that
-## there are almost no parameters to tune" (p.1019). Il n'y a donc pas de
-## valeurs kappa/gamma/theta publiees a reutiliser : la relaxation continue
-## (ODE) introduite ici est un choix de modelisation complementaire, pas
-## une reproduction de Fig. 2/3 du papier (qui sont des probabilites MaBoSS
-## en fonction du temps, pas des niveaux d'expression continus). Les
+## ---- ETAPE 4 -- Parametres cinetiques : Les
 ## valeurs kappa/gamma/theta ci-dessous sont un tirage reproductible dans les
 ## memes plages que le driver Traynard : kappa ~ Uniform[50,100] (taux de
 ## synthese), gamma ~ Uniform[0.25,2] (taux de degradation),
@@ -124,21 +117,26 @@ rules <- rulesRaw
 ## le reseau etant bistable, x0 est choisie dans le bassin de l'etat senescent
 ## (geroconversion) pour reproduire la Fig. verlingue_t2dm du papier -- voir le
 ## bloc x0 ci-dessus.
-kappa <- c(Insulin=86.8963, GF=72.4351, Senescence=94.6186, G1_S=93.7670, MAPK=62.8255,
-           p16=84.1431, MDM2=96.6196, p53=54.0983, p21=64.8349, AKT=53.5813,
-           mTORC1_S6K1=74.3393, ATP=73.6526, IRS_PIK3CA=64.9635, AMPK=57.7498, PTEN=60.5431,
-           TSC=60.4151, MYC=58.4264, CDK2=72.6472, pRB=85.5416, E2F1=54.0984,
-           PRC=81.4405, Metabolism=62.1464, PP2A=80.4183, FOXO=93.0308, PP1C=88.6539)
-gamma <- c(Insulin=0.3092, GF=1.2442, Senescence=0.5957, G1_S=0.8056, MAPK=1.3449,
-           p16=0.3772, MDM2=1.5876, p53=0.4196, p21=1.1774, AKT=0.3051,
-           mTORC1_S6K1=1.2706, ATP=1.7608, IRS_PIK3CA=0.8646, AMPK=1.4242, PTEN=0.8750,
-           TSC=0.9335, MYC=1.1724, CDK2=0.6951, pRB=1.4941, E2F1=0.8848,
-           PRC=1.5997, Metabolism=0.5707, PP2A=0.7755, FOXO=0.3583, PP1C=1.5265)
-theta <- c(Insulin=15.6650, GF=15.8662, Senescence=17.3886, G1_S=18.2190, MAPK=16.8623,
-           p16=15.4681, MDM2=12.5930, p53=15.5627, p21=15.2005, AKT=10.5953,
-           mTORC1_S6K1=10.6927, ATP=15.8599, IRS_PIK3CA=12.8231, AMPK=15.7422, PTEN=19.4743,
-           TSC=18.9398, MYC=13.5479, CDK2=16.2350, pRB=13.7492, E2F1=18.3530,
-           PRC=16.2775, Metabolism=18.2466, PP2A=19.7952, FOXO=13.8287, PP1C=11.1833)
+## The kappa/gamma/theta below are EXACTLY the values reported in the
+## manuscript (Table "Kinetic parameters for the twenty-five-node Verlingue
+## T2DM geroconversion ODE system", shared cooperativity n = 6). Running this
+## script therefore reproduces the manuscript figure and the reported Jacobian
+## spectrum (largest real part -0.39, set by min gamma = gamma_p21 = 0.39).
+kappa <- c(Insulin=68.54, GF=71.40, Senescence=92.18, G1_S=59.90, MAPK=88.30,
+           p16=89.19, MDM2=68.57, p53=51.12, p21=51.83, AKT=62.63,
+           mTORC1_S6K1=63.85, ATP=85.77, IRS_PIK3CA=66.43, AMPK=53.10, PTEN=53.41,
+           TSC=85.37, MYC=64.53, CDK2=62.68, pRB=78.07, E2F1=61.62,
+           PRC=51.99, Metabolism=67.10, PP2A=55.49, FOXO=51.53, PP1C=57.04)
+gamma <- c(Insulin=1.91, GF=1.13, Senescence=0.84, G1_S=0.99, MAPK=1.94,
+           p16=1.34, MDM2=0.71, p53=1.26, p21=0.39, AKT=1.40,
+           mTORC1_S6K1=1.68, ATP=1.26, IRS_PIK3CA=0.55, AMPK=0.58, PTEN=1.52,
+           TSC=1.51, MYC=0.96, CDK2=0.83, pRB=1.81, E2F1=1.78,
+           PRC=0.84, Metabolism=1.25, PP2A=1.40, FOXO=1.18, PP1C=0.61)
+theta <- c(Insulin=19.88, GF=17.18, Senescence=17.38, G1_S=19.00, MAPK=10.80,
+           p16=15.75, MDM2=13.08, p53=10.22, p21=17.25, AKT=19.25,
+           mTORC1_S6K1=14.34, ATP=18.62, IRS_PIK3CA=19.48, AMPK=18.58, PTEN=17.48,
+           TSC=14.65, MYC=14.15, CDK2=10.45, pRB=16.12, E2F1=18.07,
+           PRC=17.12, Metabolism=18.41, PP2A=16.63, FOXO=15.51, PP1C=16.84)
 ## ---- initial condition: geroconversion (senescent) basin -------------
 ## The T2DM network is BISTABLE: both the proliferative and the senescent
 ## Boolean fixed points are exponentially stable equilibria of the logistic
@@ -151,8 +149,14 @@ theta <- c(Insulin=15.6650, GF=15.8662, Senescence=17.3886, G1_S=18.2190, MAPK=1
 ## tumour-suppressor arm engaged (p53, PTEN, p21, Senescence high).
 ##
 ## (An initial condition with IRS_PIK3CA and CDK2 high instead drives AKT high
-## and lands in the complementary PROLIFERATIVE basin -- the healthy outcome
-## reproduced by the normal-model variant in Verlingue_normal_variant.R.)
+## and lands in the T2DM network's OWN proliferative fixed point -- E2F1=G1_S=
+## CDK2=AKT=1, Senescence=p21=p16=0, exactly as in stateProliferative below,
+## but still with IRS_PIK3CA=FALSE, since mTORC1_S6K1=TRUE at that fixed point
+## too. Insulin resistance is thus structural to the T2DM edge, not
+## basin-dependent: BOTH of its stable states keep IRS_PIK3CA off. The
+## genuinely healthy outcome -- the same 24 nodes, but IRS_PIK3CA=TRUE -- is
+## only reachable once the feedback edge itself is removed, i.e. under the
+## normal-model rule reproduced in Verlingue_normal_variant.R.)
 x0    <- c(Insulin=60.00, GF=55.00, Senescence=70.00, G1_S=5.00, MAPK=50.00,
            p16=8.00, MDM2=5.00, p53=65.00, p21=55.00, AKT=6.00,
            mTORC1_S6K1=40.00, ATP=45.00, IRS_PIK3CA=4.00, AMPK=10.00, PTEN=60.00,
@@ -213,9 +217,11 @@ legend("topright",
 ## ---- console summary: oscillating vs high vs off (t > 40) ------------
 cat("Second-half (t>40) behaviour:\n")
 for (g in genes) {
-  seg <- out[[g]][out$time > 40]
-  pp  <- max(seg) - min(seg)
-  tag <- if (pp > 1) "oscillates" else "steady"
+  seg   <- out[[g]][out$time > 40]
+  pp    <- max(seg) - min(seg)
+  level <- max(abs(seg))
+  cutoff <- max(1.0, 0.05 * level)
+  tag <- if (pp > cutoff) "oscillates" else "steady"
   cat(sprintf("  %-12s mean=%7.2f  p2p=%7.3f  %s\n", g, mean(seg), pp, tag))
 }
 

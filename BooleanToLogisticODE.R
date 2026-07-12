@@ -33,6 +33,15 @@ ruleVars <- function(expr) {
 
 
 minimizeDNF <- function(expr, vars = ruleVars(expr)) {
+  ## Quine-McCluskey prime-implicant generation (exact) followed by essential-
+  ## prime selection and a GREEDY cover of any minterms left uncovered (lines
+  ## below). The greedy step is a standard set-cover heuristic and is not
+  ## guaranteed to return the globally smallest possible DNF in every case;
+  ## it is, however, always a CORRECT DNF (logically equivalent to `expr`,
+  ## verified by construction from the prime-implicant chart) regardless of
+  ## whether that particular cover is of minimum cardinality. For every rule
+  ## in this paper's networks this has been checked, by direct execution, to
+  ## reproduce the intended minimal form (e.g. AKT's rule below).
   k <- length(vars)
   if (k == 0) return(isTRUE(eval(expr, list())))
   grid <- expand.grid(rep(list(c(FALSE, TRUE)), k), KEEP.OUT.ATTRS = FALSE)

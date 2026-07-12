@@ -13,7 +13,6 @@
 
 
 (* ============================================================================ *)
-(*  Trimmed package.                                                             *)
 (*     * BooleanToOdeSystem  -- maps a Boolean network to a product-of-logistics   *)
 (*                           ODE system via the recursive De Morgan formula;    *)
 (*     * logisticp        -- increasing (activation) logistic kernel;           *)
