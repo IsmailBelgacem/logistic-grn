@@ -114,5 +114,5 @@ If you use this code, please cite the paper:
 }
 ```
 and, if you wish to cite the software archive directly, the Zenodo record
-(`DOI: 10.5281/zenodo.21134105 `).
+(`https://doi.org/10.5281/zenodo.21321885`).
 © 2026 Ismail Belgacem.
