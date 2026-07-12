@@ -50,12 +50,9 @@ Every figure-generating program is named after the figure it produces.
 | `Figure4_Traynard_cell_cycle.R` / `.nb`         | Fig. 4 | §5.4 Cell-cycle simulation           | `Traynard.*` |
 | `Figure5_Traynard_robustness.R` / `.wl` / `.nb` | Fig. 5 | §5.5 Parameter robustness (LHS)      | `traynard_robustness*.png` |
 | `Figure6_Verlingue_T2DM_geroconversion.R`/`.nb` | Fig. 6 | §5.6 Geroconversion (type-2 diabetes)| `verlingue_t2dm.png` |
-| `Figure7_oscillator_formulation_comparison.R`   | Fig. 7 | §6.2 Hill / logistic / Samuilik       | `oscillator_comparison.png` |
-| `Figure8_repression_function_comparison.R`      | Fig. 8 | §6.3 Repression-function comparison   | `Coparaison_3.png` |
+| `Figure8_oscillator_formulation_comparison.R`   | Fig. 7 | §6.2 Hill / logistic / Samuilik       | `oscillator_comparison.png` |
+| `Figure9_repression_function_comparison.R`      | Fig. 8 | §6.3 Repression-function comparison   | `Coparaison_3.png` |
 
-`Verlingue_normal_variant.R` / `.nb` — the non-diabetic (healthy) variant of the Verlingue
-network, provided for contrast with the geroconversion figure; it is not a figure in the paper.
-(Figure 1 is a schematic drawn in LaTeX/TikZ and has no generating program.)
 
 ---
 
